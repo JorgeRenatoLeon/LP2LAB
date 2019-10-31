@@ -73,6 +73,7 @@
             this.btnSeleccionar.TabIndex = 3;
             this.btnSeleccionar.Text = "Seleccionar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // dgvPP
             // 
@@ -88,6 +89,7 @@
             this.dgvPP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPP.Size = new System.Drawing.Size(737, 256);
             this.dgvPP.TabIndex = 4;
+            this.dgvPP.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPP_CellFormatting);
             // 
             // NombrePP
             // 

@@ -62,6 +62,7 @@
             this.dgvPromociones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvPromociones.Size = new System.Drawing.Size(776, 231);
             this.dgvPromociones.TabIndex = 1;
+            this.dgvPromociones.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvPromociones_CellFormatting);
             // 
             // txtNombre
             // 
@@ -91,6 +92,7 @@
             // 
             // NombrePromo
             // 
+            this.NombrePromo.DataPropertyName = "Nombre";
             this.NombrePromo.HeaderText = "Nombre de la Promoción";
             this.NombrePromo.Name = "NombrePromo";
             this.NombrePromo.ReadOnly = true;

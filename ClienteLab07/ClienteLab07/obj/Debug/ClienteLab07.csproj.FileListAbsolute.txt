@@ -1,0 +1,12 @@
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.csprojAssemblyReference.cache
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.frmBusquedaPP.resources
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.frmBusquedaPromociones.resources
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.frmGestionarPromociones.resources
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.Properties.Resources.resources
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.csproj.GenerateResource.cache
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.csproj.CoreCompileInputs.cache
+T:\Temp\LAB\ClienteLab07\ClienteLab07\bin\Debug\ClienteLab07.exe.config
+T:\Temp\LAB\ClienteLab07\ClienteLab07\bin\Debug\ClienteLab07.exe
+T:\Temp\LAB\ClienteLab07\ClienteLab07\bin\Debug\ClienteLab07.pdb
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.exe
+T:\Temp\LAB\ClienteLab07\ClienteLab07\obj\Debug\ClienteLab07.pdb

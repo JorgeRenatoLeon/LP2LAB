@@ -13,7 +13,8 @@ namespace ClienteLab07
     public partial class frmGestionarPromociones : Form
     {
         Estado estadoObjPromocion;
-        Service.Promocion promocion = new Service.Promocion();
+        Service.promocion promocion = new Service.promocion();
+            Service.lineaDetallePromocion lineaDetallePromocion = new Service.lineaDetallePromocion();
         Service.ServicioClient DBController = new Service.ServicioClient();
         public frmGestionarPromociones()
         {
@@ -99,6 +100,10 @@ namespace ClienteLab07
             frmBusquedaPromociones formBusquedaPromociones = new frmBusquedaPromociones();
             if (formBusquedaPromociones.ShowDialog() == DialogResult.OK)
             {
+                promocion = formBusquedaPromociones.PromoSeleccionada;
+                txtIDPromocion.Text = promocion.idItemVenta.ToString();
+                txtNombrePromo.Text = promocion.nombre;
+                txtPrecioPromo.Text = promocion.precioUnitario.ToString();
                 estadoObjPromocion = Estado.Actualizar;
                 estadoComponentes(estadoObjPromocion);
             }
@@ -107,6 +112,12 @@ namespace ClienteLab07
         private void btnAgregarPP_Click(object sender, EventArgs e)
         {
 
+            lineaDetallePromocion.idLineaDetallePromocion = Int32.Parse(txtIDPP.Text);
+            lineaDetallePromocion.productoPresentacion.producto.nombre = txtNombrePP.Text;
+            lineaDetallePromocion.productoPresentacion.precioUnitario = Int32.Parse(txtPrecioUnitPP.Text);
+            lineaDetallePromocion.cantidad = Int32.Parse(txtCantidadPP.Text);
+
+            //promocion.lineasDetallePromocion(lineaDetallePromocion);
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -137,28 +148,19 @@ namespace ClienteLab07
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //Completamos los datos del objeto con lo ingresado a nivel de vista
-            promocion.idItemVenta = txtDNI.Text;
-            promocion.setTipoItem().setTipo() = "Promocion";
-            promocion.nombre = txtNombre.Text;
-            promocion.fechaNacimiento = dtpFechaNac.Value;
-            promocion.fechaNacimientoSpecified = true;
-            promocion.especialidad = (Service.especialidad)cboEspecialidad.SelectedItem;
-            promocion.permisoBibliotecas = cbBibliotecas.Checked;
-            promocion.permisoComedores = cbComedores.Checked;
-            promocion.permisoServDeportivos = cbServDep.Checked;
-            promocion.correo = txtCorreo.Text;
+            promocion.idItemVenta = Int32.Parse(txtIDPromocion.Text);
+            promocion.tipoItem.tipo = "PROMOCION";
+            promocion.precioUnitario = Int32.Parse(txtPrecioPromo.Text);
 
-            //Insertamos el promocion
-
-            if (estadoObjPromocion == Estado.Nuevo)
+            if (estadoObjPromocion == Estado.Inicial)
             {
-                DBController.insertarAlumno(promocion);
+                DBController.insertarPromociones(promocion);
                 //Mostramos un mensaje de exito
-                MessageBox.Show("Alumno Registrado exitosamente", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Promoción Registrada exitosamente", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (estadoObjPromocion == Estado.Modificar)
+            else if (estadoObjPromocion == Estado.NuevoModificar)
             {
-                DBController.actualizarAlumno(promocion);
+                DBController.actualizarPromociones(promocion);
                 MessageBox.Show("Se han actualizado los datos", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             estadoComponentes(Estado.Inicial);
