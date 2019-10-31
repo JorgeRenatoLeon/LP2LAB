@@ -2,15 +2,9 @@
 <definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://services.marketsoft.pucp.edu.pe/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Servicio" targetNamespace="http://services.marketsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
   <types>
     <xsd:schema>
-      <xsd:import schemaLocation="http://192.168.207.128:8080/MarketSoftServices/Servicio?xsd=1" namespace="http://services.marketsoft.pucp.edu.pe/" />
+      <xsd:import schemaLocation="http://3.233.57.147:8080/MarketSoftServices/Servicio?xsd=1" namespace="http://services.marketsoft.pucp.edu.pe/" />
     </xsd:schema>
   </types>
-  <message name="listarProductos">
-    <part name="parameters" element="tns:listarProductos" />
-  </message>
-  <message name="listarProductosResponse">
-    <part name="parameters" element="tns:listarProductosResponse" />
-  </message>
   <message name="insertarPromociones">
     <part name="parameters" element="tns:insertarPromociones" />
   </message>
@@ -35,6 +29,12 @@
   <message name="listarPromocionesResponse">
     <part name="parameters" element="tns:listarPromocionesResponse" />
   </message>
+  <message name="listarProductos">
+    <part name="parameters" element="tns:listarProductos" />
+  </message>
+  <message name="listarProductosResponse">
+    <part name="parameters" element="tns:listarProductosResponse" />
+  </message>
   <message name="hello">
     <part name="parameters" element="tns:hello" />
   </message>
@@ -42,10 +42,6 @@
     <part name="parameters" element="tns:helloResponse" />
   </message>
   <portType name="Servicio">
-    <operation name="listarProductos">
-      <input wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest" message="tns:listarProductos" />
-      <output wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse" message="tns:listarProductosResponse" />
-    </operation>
     <operation name="insertarPromociones">
       <input wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/insertarPromocionesRequest" message="tns:insertarPromociones" />
       <output wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/insertarPromocionesResponse" message="tns:insertarPromocionesResponse" />
@@ -62,6 +58,10 @@
       <input wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarPromocionesRequest" message="tns:listarPromociones" />
       <output wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarPromocionesResponse" message="tns:listarPromocionesResponse" />
     </operation>
+    <operation name="listarProductos">
+      <input wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest" message="tns:listarProductos" />
+      <output wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse" message="tns:listarProductosResponse" />
+    </operation>
     <operation name="hello">
       <input wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/helloRequest" message="tns:hello" />
       <output wsam:Action="http://services.marketsoft.pucp.edu.pe/Servicio/helloResponse" message="tns:helloResponse" />
@@ -69,15 +69,6 @@
   </portType>
   <binding name="ServicioPortBinding" type="tns:Servicio">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="listarProductos">
-      <soap:operation soapAction="" />
-      <input>
-        <soap:body use="literal" />
-      </input>
-      <output>
-        <soap:body use="literal" />
-      </output>
-    </operation>
     <operation name="insertarPromociones">
       <soap:operation soapAction="" />
       <input>
@@ -106,6 +97,15 @@
       </output>
     </operation>
     <operation name="listarPromociones">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarProductos">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -126,7 +126,7 @@
   </binding>
   <service name="Servicio">
     <port name="ServicioPort" binding="tns:ServicioPortBinding">
-      <soap:address location="http://192.168.207.128:8080/MarketSoftServices/Servicio" />
+      <soap:address location="http://3.233.57.147:8080/MarketSoftServices/Servicio" />
     </port>
   </service>
 </definitions>

@@ -273,6 +273,7 @@
             this.btnEliminarPP.TabIndex = 13;
             this.btnEliminarPP.Text = "-";
             this.btnEliminarPP.UseVisualStyleBackColor = true;
+            this.btnEliminarPP.Click += new System.EventHandler(this.btnEliminarPP_Click);
             // 
             // btnAgregarPP
             // 

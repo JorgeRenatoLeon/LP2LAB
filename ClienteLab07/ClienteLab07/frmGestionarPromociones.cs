@@ -14,11 +14,13 @@ namespace ClienteLab07
     {
         Estado estadoObjPromocion;
         Service.promocion promocion = new Service.promocion();
-            Service.lineaDetallePromocion lineaDetallePromocion = new Service.lineaDetallePromocion();
+        Service.productoPresentacion pp = new Service.productoPresentacion();
+        Service.lineaDetallePromocion lineaDetallePromocion = new Service.lineaDetallePromocion();
         Service.ServicioClient DBController = new Service.ServicioClient();
         public frmGestionarPromociones()
         {
             InitializeComponent();
+            promocion.precioUnitario = 0;
             estadoComponentes(Estado.Inicial);
         }
 
@@ -113,11 +115,16 @@ namespace ClienteLab07
         {
 
             lineaDetallePromocion.idLineaDetallePromocion = Int32.Parse(txtIDPP.Text);
-            lineaDetallePromocion.productoPresentacion.producto.nombre = txtNombrePP.Text;
-            lineaDetallePromocion.productoPresentacion.precioUnitario = Int32.Parse(txtPrecioUnitPP.Text);
+            if (pp.idItemVenta==null) {
+                pp.precioUnitario = float.Parse(txtPrecioUnitPP.Text);
+                pp.idItemVenta = Int32.Parse(txtIDPP.Text);
+            }
+            lineaDetallePromocion.productoPresentacion = pp;
             lineaDetallePromocion.cantidad = Int32.Parse(txtCantidadPP.Text);
 
+            promocion.precioUnitario += Int32.Parse(txtCantidadPP.Text) * pp.precioUnitario;
             //promocion.lineasDetallePromocion(lineaDetallePromocion);
+            txtPrecioPromo.Text = promocion.precioUnitario.ToString();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -131,7 +138,10 @@ namespace ClienteLab07
             frmBusquedaPP formBusquedaPP = new frmBusquedaPP();
             if(formBusquedaPP.ShowDialog() == DialogResult.OK)
             {
-
+                pp = formBusquedaPP.PPSeleccionada;
+                txtIDPP.Text = pp.idItemVenta.ToString();
+                txtNombrePP.Text = pp.producto.nombre+" - "+pp.presentacion.unidadMedida;
+                txtPrecioUnitPP.Text = pp.precioUnitario.ToString();
             }
         }
 
@@ -148,22 +158,29 @@ namespace ClienteLab07
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             //Completamos los datos del objeto con lo ingresado a nivel de vista
-            promocion.idItemVenta = Int32.Parse(txtIDPromocion.Text);
-            promocion.tipoItem.tipo = "PROMOCION";
-            promocion.precioUnitario = Int32.Parse(txtPrecioPromo.Text);
+            Service.tipoItem tipo = new Service.tipoItem();
+            tipo.tipo = "PROMOCION";
+            promocion.nombre = txtNombrePromo.Text;
+            promocion.tipoItem = tipo;
+            promocion.precioUnitario = float.Parse(txtPrecioPromo.Text.ToString());
 
-            if (estadoObjPromocion == Estado.Inicial)
+            if (estadoObjPromocion == Estado.NuevoModificar)
             {
                 DBController.insertarPromociones(promocion);
                 //Mostramos un mensaje de exito
                 MessageBox.Show("Promoción Registrada exitosamente", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else if (estadoObjPromocion == Estado.NuevoModificar)
+            else if (estadoObjPromocion == Estado.Inicial)
             {
                 DBController.actualizarPromociones(promocion);
                 MessageBox.Show("Se han actualizado los datos", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             estadoComponentes(Estado.Inicial);
+        }
+
+        private void btnEliminarPP_Click(object sender, EventArgs e)
+        {
+            dgvPP.CurrentRow.Visible = false;
         }
     }
 }

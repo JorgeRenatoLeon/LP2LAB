@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.207.128:8080/MarketSoftServices/Servicio?WSDL" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://3.233.57.147:8080/MarketSoftServices/Servicio?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Servicio.wsdl" MetadataType="Wsdl" ID="a697d191-672f-47c4-b37f-f653bbe2cfcc" SourceId="1" SourceUrl="http://192.168.207.128:8080/MarketSoftServices/Servicio?WSDL" />
-    <MetadataFile FileName="Servicio.xsd" MetadataType="Schema" ID="d7c7adfb-b133-40fd-90c2-f47b9e1fb3e1" SourceId="1" SourceUrl="http://192.168.207.128:8080/MarketSoftServices/Servicio?xsd=1" />
+    <MetadataFile FileName="Servicio1.wsdl" MetadataType="Wsdl" ID="5d9d0e32-4e39-49a6-88f7-8ac2f4377fc7" SourceId="1" SourceUrl="http://3.233.57.147:8080/MarketSoftServices/Servicio?WSDL" />
+    <MetadataFile FileName="Servicio1.xsd" MetadataType="Schema" ID="9db67a0c-2a17-4ddf-a905-24d7e443f942" SourceId="1" SourceUrl="http://3.233.57.147:8080/MarketSoftServices/Servicio?xsd=1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

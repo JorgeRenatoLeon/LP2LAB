@@ -16,16 +16,6 @@ namespace ClienteLab07.Service {
     public interface Servicio {
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(itemVenta))]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        ClienteLab07.Service.listarProductosResponse listarProductos(ClienteLab07.Service.listarProductosRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse")]
-        System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> listarProductosAsync(ClienteLab07.Service.listarProductosRequest request);
-        
-        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/insertarPromocionesRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/insertarPromocionesResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(itemVenta))]
@@ -66,6 +56,16 @@ namespace ClienteLab07.Service {
         System.Threading.Tasks.Task<ClienteLab07.Service.listarPromocionesResponse> listarPromocionesAsync(ClienteLab07.Service.listarPromocionesRequest request);
         
         // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(itemVenta))]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        ClienteLab07.Service.listarProductosResponse listarProductos(ClienteLab07.Service.listarProductosRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/listarProductosResponse")]
+        System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> listarProductosAsync(ClienteLab07.Service.listarProductosRequest request);
+        
+        // CODEGEN: El parámetro 'return' requiere información adicional de esquema que no se puede capturar con el modo de parámetros. El atributo específico es 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/helloRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/helloResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(itemVenta))]
@@ -74,6 +74,103 @@ namespace ClienteLab07.Service {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services.marketsoft.pucp.edu.pe/Servicio/helloRequest", ReplyAction="http://services.marketsoft.pucp.edu.pe/Servicio/helloResponse")]
         System.Threading.Tasks.Task<ClienteLab07.Service.helloResponse> helloAsync(ClienteLab07.Service.helloRequest request);
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/")]
+    public partial class promocion : itemVenta {
+        
+        private string nombreField;
+        
+        private lineaDetallePromocion[] lineasDetallePromocionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string nombre {
+            get {
+                return this.nombreField;
+            }
+            set {
+                this.nombreField = value;
+                this.RaisePropertyChanged("nombre");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("lineasDetallePromocion", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
+        public lineaDetallePromocion[] lineasDetallePromocion {
+            get {
+                return this.lineasDetallePromocionField;
+            }
+            set {
+                this.lineasDetallePromocionField = value;
+                this.RaisePropertyChanged("lineasDetallePromocion");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/")]
+    public partial class lineaDetallePromocion : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private int cantidadField;
+        
+        private int idLineaDetallePromocionField;
+        
+        private productoPresentacion productoPresentacionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int cantidad {
+            get {
+                return this.cantidadField;
+            }
+            set {
+                this.cantidadField = value;
+                this.RaisePropertyChanged("cantidad");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public int idLineaDetallePromocion {
+            get {
+                return this.idLineaDetallePromocionField;
+            }
+            set {
+                this.idLineaDetallePromocionField = value;
+                this.RaisePropertyChanged("idLineaDetallePromocion");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public productoPresentacion productoPresentacion {
+            get {
+                return this.productoPresentacionField;
+            }
+            set {
+                this.productoPresentacionField = value;
+                this.RaisePropertyChanged("productoPresentacion");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     /// <remarks/>
@@ -211,66 +308,6 @@ namespace ClienteLab07.Service {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/")]
-    public partial class lineaDetallePromocion : object, System.ComponentModel.INotifyPropertyChanged {
-        
-        private int cantidadField;
-        
-        private int idLineaDetallePromocionField;
-        
-        private productoPresentacion productoPresentacionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public int cantidad {
-            get {
-                return this.cantidadField;
-            }
-            set {
-                this.cantidadField = value;
-                this.RaisePropertyChanged("cantidad");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
-        public int idLineaDetallePromocion {
-            get {
-                return this.idLineaDetallePromocionField;
-            }
-            set {
-                this.idLineaDetallePromocionField = value;
-                this.RaisePropertyChanged("idLineaDetallePromocion");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
-        public productoPresentacion productoPresentacion {
-            get {
-                return this.productoPresentacionField;
-            }
-            set {
-                this.productoPresentacionField = value;
-                this.RaisePropertyChanged("productoPresentacion");
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/")]
     public partial class tipoItem : object, System.ComponentModel.INotifyPropertyChanged {
         
         private int idTipoItemField;
@@ -370,79 +407,6 @@ namespace ClienteLab07.Service {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.8.3761.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/")]
-    public partial class promocion : itemVenta {
-        
-        private string nombreField;
-        
-        private lineaDetallePromocion[] lineasDetallePromocionField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
-        public string nombre {
-            get {
-                return this.nombreField;
-            }
-            set {
-                this.nombreField = value;
-                this.RaisePropertyChanged("nombre");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("lineasDetallePromocion", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true, Order=1)]
-        public lineaDetallePromocion[] lineasDetallePromocion {
-            get {
-                return this.lineasDetallePromocionField;
-            }
-            set {
-                this.lineasDetallePromocionField = value;
-                this.RaisePropertyChanged("lineasDetallePromocion");
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.marketsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string nombre;
-        
-        public listarProductosRequest() {
-        }
-        
-        public listarProductosRequest(string nombre) {
-            this.nombre = nombre;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.marketsoft.pucp.edu.pe/", IsWrapped=true)]
-    public partial class listarProductosResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public ClienteLab07.Service.productoPresentacion[] @return;
-        
-        public listarProductosResponse() {
-        }
-        
-        public listarProductosResponse(ClienteLab07.Service.productoPresentacion[] @return) {
-            this.@return = @return;
         }
     }
     
@@ -593,6 +557,42 @@ namespace ClienteLab07.Service {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductos", WrapperNamespace="http://services.marketsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string nombre;
+        
+        public listarProductosRequest() {
+        }
+        
+        public listarProductosRequest(string nombre) {
+            this.nombre = nombre;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="listarProductosResponse", WrapperNamespace="http://services.marketsoft.pucp.edu.pe/", IsWrapped=true)]
+    public partial class listarProductosResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services.marketsoft.pucp.edu.pe/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public ClienteLab07.Service.productoPresentacion[] @return;
+        
+        public listarProductosResponse() {
+        }
+        
+        public listarProductosResponse(ClienteLab07.Service.productoPresentacion[] @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="hello", WrapperNamespace="http://services.marketsoft.pucp.edu.pe/", IsWrapped=true)]
     public partial class helloRequest {
         
@@ -651,29 +651,6 @@ namespace ClienteLab07.Service {
         
         public ServicioClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClienteLab07.Service.listarProductosResponse ClienteLab07.Service.Servicio.listarProductos(ClienteLab07.Service.listarProductosRequest request) {
-            return base.Channel.listarProductos(request);
-        }
-        
-        public ClienteLab07.Service.productoPresentacion[] listarProductos(string nombre) {
-            ClienteLab07.Service.listarProductosRequest inValue = new ClienteLab07.Service.listarProductosRequest();
-            inValue.nombre = nombre;
-            ClienteLab07.Service.listarProductosResponse retVal = ((ClienteLab07.Service.Servicio)(this)).listarProductos(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> ClienteLab07.Service.Servicio.listarProductosAsync(ClienteLab07.Service.listarProductosRequest request) {
-            return base.Channel.listarProductosAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> listarProductosAsync(string nombre) {
-            ClienteLab07.Service.listarProductosRequest inValue = new ClienteLab07.Service.listarProductosRequest();
-            inValue.nombre = nombre;
-            return ((ClienteLab07.Service.Servicio)(this)).listarProductosAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -766,6 +743,29 @@ namespace ClienteLab07.Service {
             ClienteLab07.Service.listarPromocionesRequest inValue = new ClienteLab07.Service.listarPromocionesRequest();
             inValue.nombre = nombre;
             return ((ClienteLab07.Service.Servicio)(this)).listarPromocionesAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClienteLab07.Service.listarProductosResponse ClienteLab07.Service.Servicio.listarProductos(ClienteLab07.Service.listarProductosRequest request) {
+            return base.Channel.listarProductos(request);
+        }
+        
+        public ClienteLab07.Service.productoPresentacion[] listarProductos(string nombre) {
+            ClienteLab07.Service.listarProductosRequest inValue = new ClienteLab07.Service.listarProductosRequest();
+            inValue.nombre = nombre;
+            ClienteLab07.Service.listarProductosResponse retVal = ((ClienteLab07.Service.Servicio)(this)).listarProductos(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> ClienteLab07.Service.Servicio.listarProductosAsync(ClienteLab07.Service.listarProductosRequest request) {
+            return base.Channel.listarProductosAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClienteLab07.Service.listarProductosResponse> listarProductosAsync(string nombre) {
+            ClienteLab07.Service.listarProductosRequest inValue = new ClienteLab07.Service.listarProductosRequest();
+            inValue.nombre = nombre;
+            return ((ClienteLab07.Service.Servicio)(this)).listarProductosAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
