@@ -12,9 +12,9 @@ namespace ClienteLab07
 {
     public partial class frmGestionarPromociones : Form
     {
-        Service.alumno alumno = new Service.alumno();
-        Service.ServicioClient DBController
-                = new Service.ServicioClient();
+        Estado estadoObjPromocion;
+        Service.Promocion promocion = new Service.Promocion();
+        Service.ServicioClient DBController = new Service.ServicioClient();
         public frmGestionarPromociones()
         {
             InitializeComponent();
@@ -83,13 +83,15 @@ namespace ClienteLab07
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            estadoComponentes(Estado.NuevoModificar);
+            estadoObjPromocion = Estado.NuevoModificar;
+            estadoComponentes(estadoObjPromocion);
             limpiarComponentes();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            estadoComponentes(Estado.Inicial);
+            estadoObjPromocion = Estado.Inicial;
+            estadoComponentes(estadoObjPromocion);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -97,7 +99,8 @@ namespace ClienteLab07
             frmBusquedaPromociones formBusquedaPromociones = new frmBusquedaPromociones();
             if (formBusquedaPromociones.ShowDialog() == DialogResult.OK)
             {
-                estadoComponentes(Estado.Actualizar);
+                estadoObjPromocion = Estado.Actualizar;
+                estadoComponentes(estadoObjPromocion);
             }
         }
 
@@ -108,7 +111,8 @@ namespace ClienteLab07
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            estadoComponentes(Estado.NuevoModificar);
+            estadoObjPromocion = Estado.NuevoModificar;
+            estadoComponentes(estadoObjPromocion);
         }
 
         private void btnBuscarPP_Click(object sender, EventArgs e)
@@ -122,15 +126,42 @@ namespace ClienteLab07
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if(DialogResult.Yes == MessageBox.Show("¿Está seguro que desea eliminar esta promoción?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)){
-                estadoComponentes(Estado.Inicial);
+            if(DialogResult.Yes == MessageBox.Show("¿Está seguro que desea eliminar esta promoción?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation))
+            {
+                estadoObjPromocion = Estado.Inicial;
+                estadoComponentes(estadoObjPromocion);
             }
 
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            //Completamos los datos del objeto con lo ingresado a nivel de vista
+            promocion.idItemVenta = txtDNI.Text;
+            promocion.setTipoItem().setTipo() = "Promocion";
+            promocion.nombre = txtNombre.Text;
+            promocion.fechaNacimiento = dtpFechaNac.Value;
+            promocion.fechaNacimientoSpecified = true;
+            promocion.especialidad = (Service.especialidad)cboEspecialidad.SelectedItem;
+            promocion.permisoBibliotecas = cbBibliotecas.Checked;
+            promocion.permisoComedores = cbComedores.Checked;
+            promocion.permisoServDeportivos = cbServDep.Checked;
+            promocion.correo = txtCorreo.Text;
 
+            //Insertamos el promocion
+
+            if (estadoObjPromocion == Estado.Nuevo)
+            {
+                DBController.insertarAlumno(promocion);
+                //Mostramos un mensaje de exito
+                MessageBox.Show("Alumno Registrado exitosamente", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (estadoObjPromocion == Estado.Modificar)
+            {
+                DBController.actualizarAlumno(promocion);
+                MessageBox.Show("Se han actualizado los datos", "Mensaje Confirmacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            estadoComponentes(Estado.Inicial);
         }
     }
 }
