@@ -28,4 +28,9 @@ public class ProductoPresentacion extends ItemVenta implements Serializable{
         this.presentacion = presentacion;
     }
     
+    @Override
+    public String toString() {
+        return this.getProducto().getNombre()+" - "+this.getPresentacion().getUnidadMedida();
+    }
+    
 }

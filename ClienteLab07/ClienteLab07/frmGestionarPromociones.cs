@@ -12,6 +12,9 @@ namespace ClienteLab07
 {
     public partial class frmGestionarPromociones : Form
     {
+        Service.alumno alumno = new Service.alumno();
+        Service.ServicioClient DBController
+                = new Service.ServicioClient();
         public frmGestionarPromociones()
         {
             InitializeComponent();
@@ -122,6 +125,11 @@ namespace ClienteLab07
             if(DialogResult.Yes == MessageBox.Show("¿Está seguro que desea eliminar esta promoción?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)){
                 estadoComponentes(Estado.Inicial);
             }
+
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
 
         }
     }
