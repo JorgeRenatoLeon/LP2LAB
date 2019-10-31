@@ -1,7 +1,10 @@
 package pe.edu.pucp.marketsoft.model;
 
 import java.io.Serializable;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ItemVenta implements Serializable{
     
     private int idItemVenta;
