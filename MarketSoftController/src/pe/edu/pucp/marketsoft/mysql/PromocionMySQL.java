@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pe.edu.pucp.marketsoft.config.DBManager;
 import pe.edu.pucp.marketsoft.dao.PromocionDAO;
 import pe.edu.pucp.marketsoft.model.LineaDetallePromocion;
@@ -20,6 +22,7 @@ public class PromocionMySQL implements PromocionDAO{
     public int insertar(Promocion promocion) {
         int resultado = 0;
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             con.setAutoCommit(false);
             cs = con.prepareCall("{call INSERTAR_PROMOCION(?,?,?)}");
@@ -40,6 +43,8 @@ public class PromocionMySQL implements PromocionDAO{
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
             try{con.rollback();}catch(SQLException exe){System.out.println(exe.getMessage());}
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PromocionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try{con.setAutoCommit(true);cs.close();con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
@@ -50,6 +55,7 @@ public class PromocionMySQL implements PromocionDAO{
     public int actualizar(Promocion promocion) {
         int resultado = 0;
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             con.setAutoCommit(false);
             cs = con.prepareCall("{call ACTUALIZAR_PROMOCION(?,?,?)}");
@@ -69,6 +75,8 @@ public class PromocionMySQL implements PromocionDAO{
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
             try{con.rollback();}catch(SQLException exe){System.out.println(exe.getMessage());}
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PromocionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try{con.setAutoCommit(true);cs.close();con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
@@ -79,12 +87,15 @@ public class PromocionMySQL implements PromocionDAO{
     public int eliminar(int idPromocion) {
         int resultado = 0;
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call ELIMINAR_PROMOCION(?)}");
             cs.setInt("_ID_PROMOCION", idPromocion);
             resultado = cs.executeUpdate();
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PromocionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return resultado;
     }
@@ -93,6 +104,7 @@ public class PromocionMySQL implements PromocionDAO{
     public ArrayList<Promocion> listar(String nombre) {
         ArrayList<Promocion> promociones = new ArrayList<>();
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call LISTAR_PROMOCIONES(?)}");
             cs.setString("_NOMBRE_PROMOCION", nombre);
@@ -123,6 +135,8 @@ public class PromocionMySQL implements PromocionDAO{
             }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PromocionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }

@@ -10,6 +10,7 @@ import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import pe.edu.pucp.marketsoft.config.DBController;
+import pe.edu.pucp.marketsoft.model.ProductoPresentacion;
 import pe.edu.pucp.marketsoft.model.Promocion;
 
 /**
@@ -26,6 +27,7 @@ public class Servicio {
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
     }
+
     
     @WebMethod(operationName = "insertarPromociones")
     public int insertarPromociones(@WebParam(name = "Promocion") Promocion promocion){
@@ -45,5 +47,10 @@ public class Servicio {
     @WebMethod(operationName = "listarPromociones")
     public ArrayList<Promocion> listarPromociones(@WebParam(name = "nombre") String nombre){
         return DBController.listarPromociones(nombre);
+    }
+    
+    @WebMethod(operationName = "listarProductos")
+    public ArrayList<ProductoPresentacion> listarProductos(@WebParam(name="nombre")String nombre){
+        return DBController.listarProductosPresentacionPorNombre(nombre);
     }
 }

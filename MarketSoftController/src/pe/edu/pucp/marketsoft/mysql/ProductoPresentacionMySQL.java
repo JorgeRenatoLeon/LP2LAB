@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import pe.edu.pucp.marketsoft.config.DBManager;
 import pe.edu.pucp.marketsoft.dao.ProductoPresentacionDAO;
 import pe.edu.pucp.marketsoft.model.ProductoPresentacion;
@@ -19,6 +21,7 @@ public class ProductoPresentacionMySQL implements ProductoPresentacionDAO{
     public ArrayList<ProductoPresentacion> listarProductosPresentacionPorNombre(String nombre) {
         ArrayList<ProductoPresentacion> productosPresentacion = new ArrayList<>();
         try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(DBManager.url, DBManager.user, DBManager.password);
             cs = con.prepareCall("{call LISTAR_PRODUCTOS_PRESENTACION(?)}");
             cs.setString("_NOMBRE_PRODUCTO", nombre);
@@ -35,6 +38,8 @@ public class ProductoPresentacionMySQL implements ProductoPresentacionDAO{
             }
         }catch(SQLException ex){
             System.out.println(ex.getMessage());
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ProductoPresentacionMySQL.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             try{con.close();}catch(SQLException ex){System.out.println(ex.getMessage());}
         }
