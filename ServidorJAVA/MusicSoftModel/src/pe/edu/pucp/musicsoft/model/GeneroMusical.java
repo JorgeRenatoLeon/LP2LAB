@@ -30,4 +30,8 @@ public class GeneroMusical implements Serializable{
         this.nombreGenero = nombreGenero;
     }
     
+    @Override
+    public String toString(){
+        return nombreGenero;
+    }
 }

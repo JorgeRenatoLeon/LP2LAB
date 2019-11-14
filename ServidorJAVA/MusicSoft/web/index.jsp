@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Lista de Álbumes</h1>
-        <form action="NewServlet" method="get">
+        <form action="Prueba" method="get">
         <table style="border:1px solid black;">
         <tr>
             <th>Id del Álbum</th>
