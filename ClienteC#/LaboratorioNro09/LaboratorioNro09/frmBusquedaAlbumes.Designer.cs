@@ -31,13 +31,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAlbumes = new System.Windows.Forms.DataGridView();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Artista = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.txtNombreAlbumArtista = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblNombreAlbum = new System.Windows.Forms.Label();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Artista = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlbumes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,30 @@
             this.dgvAlbumes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlbumes.Size = new System.Drawing.Size(846, 313);
             this.dgvAlbumes.TabIndex = 0;
+            this.dgvAlbumes.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvAlbumes_CellFormatting);
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre del Álbum";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 300;
+            // 
+            // Artista
+            // 
+            this.Artista.HeaderText = "Artista";
+            this.Artista.Name = "Artista";
+            this.Artista.ReadOnly = true;
+            this.Artista.Width = 300;
+            // 
+            // Fecha
+            // 
+            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
+            this.Fecha.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Fecha.HeaderText = "Fecha de Lanzamiento";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            this.Fecha.Width = 200;
             // 
             // btnSeleccionar
             // 
@@ -90,6 +114,7 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // lblNombreAlbum
             // 
@@ -99,29 +124,6 @@
             this.lblNombreAlbum.Size = new System.Drawing.Size(136, 13);
             this.lblNombreAlbum.TabIndex = 4;
             this.lblNombreAlbum.Text = "Nombre del Álbum / Artista:";
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre del Álbum";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 300;
-            // 
-            // Artista
-            // 
-            this.Artista.HeaderText = "Artista";
-            this.Artista.Name = "Artista";
-            this.Artista.ReadOnly = true;
-            this.Artista.Width = 300;
-            // 
-            // Fecha
-            // 
-            dataGridViewCellStyle2.Format = "dd-MM-yyyy";
-            this.Fecha.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Fecha.HeaderText = "Fecha de Lanzamiento";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 200;
             // 
             // frmBusquedaAlbumes
             // 

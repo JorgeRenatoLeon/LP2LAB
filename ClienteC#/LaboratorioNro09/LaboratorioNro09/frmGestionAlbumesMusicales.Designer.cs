@@ -399,6 +399,7 @@
             this.btnEliminar.TabIndex = 14;
             this.btnEliminar.Text = "-";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 
@@ -432,6 +433,7 @@
             this.dgvTracks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTracks.Size = new System.Drawing.Size(544, 206);
             this.dgvTracks.TabIndex = 0;
+            this.dgvTracks.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTracks_CellFormatting);
             // 
             // Pos
             // 
