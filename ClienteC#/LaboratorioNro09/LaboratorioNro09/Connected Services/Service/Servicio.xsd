@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.musicsoft.pucp.edu.pe/" targetNamespace="http://services.musicsoft.pucp.edu.pe/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="insertarAlbum" type="tns:insertarAlbum" />
+  <xs:element name="insertarAlbumResponse" type="tns:insertarAlbumResponse" />
+  <xs:element name="listarAlbums" type="tns:listarAlbums" />
+  <xs:element name="listarAlbumsResponse" type="tns:listarAlbumsResponse" />
+  <xs:element name="listarArtistas" type="tns:listarArtistas" />
+  <xs:element name="listarArtistasResponse" type="tns:listarArtistasResponse" />
+  <xs:element name="listarEmpresas" type="tns:listarEmpresas" />
+  <xs:element name="listarEmpresasResponse" type="tns:listarEmpresasResponse" />
+  <xs:element name="listarGeneros" type="tns:listarGeneros" />
+  <xs:element name="listarGenerosResponse" type="tns:listarGenerosResponse" />
+  <xs:complexType name="listarGeneros">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="listarGenerosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:generoMusical" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generoMusical">
+    <xs:sequence>
+      <xs:element name="idGenero" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreGenero" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEmpresasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:empresaDiscografica" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="empresaDiscografica">
+    <xs:sequence>
+      <xs:element name="idEmpresa" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreEmpresa" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarArtistas">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarArtistasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:artista" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="artista">
+    <xs:sequence>
+      <xs:element name="idArtista" type="xs:int" />
+      <xs:element minOccurs="0" name="nacionalidad" type="xs:string" />
+      <xs:element minOccurs="0" name="nombreArtista" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarAlbum">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="album" type="tns:albumMusical" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="albumMusical">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="artista" type="tns:artista" />
+      <xs:element minOccurs="0" name="descripcion" type="xs:string" />
+      <xs:element minOccurs="0" name="empresaDiscografica" type="tns:empresaDiscografica" />
+      <xs:element minOccurs="0" name="fechaLanzamiento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="generoMusical" type="tns:generoMusical" />
+      <xs:element name="idAlbum" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreAlbum" type="xs:string" />
+      <xs:element minOccurs="0" name="portada" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="tracks" nillable="true" type="tns:track" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="track">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="duracion" type="xs:string" />
+      <xs:element name="idTrack" type="xs:int" />
+      <xs:element minOccurs="0" name="nombreTrack" type="xs:string" />
+      <xs:element name="posicionAlbum" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertarAlbumResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarAlbums">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nombre" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarAlbumsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:albumMusical" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

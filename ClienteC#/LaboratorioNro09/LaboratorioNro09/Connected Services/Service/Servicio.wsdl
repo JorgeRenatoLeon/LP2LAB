@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://services.musicsoft.pucp.edu.pe/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="Servicio" targetNamespace="http://services.musicsoft.pucp.edu.pe/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://192.168.207.129:8080/MusicSoft/Servicio?xsd=1" namespace="http://services.musicsoft.pucp.edu.pe/" />
+    </xsd:schema>
+  </types>
+  <message name="listarGeneros">
+    <part name="parameters" element="tns:listarGeneros" />
+  </message>
+  <message name="listarGenerosResponse">
+    <part name="parameters" element="tns:listarGenerosResponse" />
+  </message>
+  <message name="listarArtistas">
+    <part name="parameters" element="tns:listarArtistas" />
+  </message>
+  <message name="listarArtistasResponse">
+    <part name="parameters" element="tns:listarArtistasResponse" />
+  </message>
+  <message name="insertarAlbum">
+    <part name="parameters" element="tns:insertarAlbum" />
+  </message>
+  <message name="insertarAlbumResponse">
+    <part name="parameters" element="tns:insertarAlbumResponse" />
+  </message>
+  <message name="listarAlbums">
+    <part name="parameters" element="tns:listarAlbums" />
+  </message>
+  <message name="listarAlbumsResponse">
+    <part name="parameters" element="tns:listarAlbumsResponse" />
+  </message>
+  <message name="listarEmpresas">
+    <part name="parameters" element="tns:listarEmpresas" />
+  </message>
+  <message name="listarEmpresasResponse">
+    <part name="parameters" element="tns:listarEmpresasResponse" />
+  </message>
+  <portType name="Servicio">
+    <operation name="listarGeneros">
+      <input wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarGenerosRequest" message="tns:listarGeneros" />
+      <output wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarGenerosResponse" message="tns:listarGenerosResponse" />
+    </operation>
+    <operation name="listarArtistas">
+      <input wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarArtistasRequest" message="tns:listarArtistas" />
+      <output wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarArtistasResponse" message="tns:listarArtistasResponse" />
+    </operation>
+    <operation name="insertarAlbum">
+      <input wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/insertarAlbumRequest" message="tns:insertarAlbum" />
+      <output wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/insertarAlbumResponse" message="tns:insertarAlbumResponse" />
+    </operation>
+    <operation name="listarAlbums">
+      <input wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarAlbumsRequest" message="tns:listarAlbums" />
+      <output wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarAlbumsResponse" message="tns:listarAlbumsResponse" />
+    </operation>
+    <operation name="listarEmpresas">
+      <input wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarEmpresasRequest" message="tns:listarEmpresas" />
+      <output wsam:Action="http://services.musicsoft.pucp.edu.pe/Servicio/listarEmpresasResponse" message="tns:listarEmpresasResponse" />
+    </operation>
+  </portType>
+  <binding name="ServicioPortBinding" type="tns:Servicio">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listarGeneros">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarArtistas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="insertarAlbum">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarAlbums">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listarEmpresas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="Servicio">
+    <port name="ServicioPort" binding="tns:ServicioPortBinding">
+      <soap:address location="http://192.168.207.129:8080/MusicSoft/Servicio" />
+    </port>
+  </service>
+</definitions>

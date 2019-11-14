@@ -1,0 +1,13 @@
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\bin\Debug\LaboratorioNro09.exe.config
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\bin\Debug\LaboratorioNro09.exe
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\bin\Debug\LaboratorioNro09.pdb
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.csprojAssemblyReference.cache
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.frmBusquedaAlbumes.resources
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.frmBusquedaArtistas.resources
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.frmBusquedaDisquera.resources
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.frmGestionAlbumMusical.resources
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.Properties.Resources.resources
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.csproj.GenerateResource.cache
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.csproj.CoreCompileInputs.cache
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.exe
+D:\Users\TEMP.INF.000\Downloads\LP2LAB\ClienteC#\LaboratorioNro09\LaboratorioNro09\obj\Debug\LaboratorioNro09.pdb
